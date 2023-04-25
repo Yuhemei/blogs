@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="hexo,个人博客,blog" />
+  <meta name="description" content="某某的个人博客" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  <link rel="dns-prefetch" href="https://at.alicdn.com">
+  
+  <link rel="dns-prefetch" href="https://widget.daovoice.io">
+  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
+  <link rel="dns-prefetch" href="https://im.daovoice.io">
+  
+  
+  <link rel="dns-prefetch" href="https://hm.baidu.com/">
+  
+  
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  
+  <link rel="stylesheet" type="text/css" href="/blogs/./style/main.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>Python3操作Excel</title>
+  
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+  </script>
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/blogs/">于贺美的官方博客</a>
+  <a class="face-img" href="/blogs/">
+    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    Python3操作Excel
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2021-12-03T06:41:18.000Z" itemprop="datePublished">2021-12-03</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2023-02-08T11:45:50.826Z" itemprop="dateUpdated">2023-02-08</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <p>最近和资料整合打上交道了，想到Python的强大，顺手查了一些Python操作Excel表格的一些资源，在此记录一下。</p>
+<h2 id="xlrd"><a href="#xlrd" class="headerlink" title="xlrd"></a>xlrd</h2><p>首先是读</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 xlrd 库</span></span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开xls 文件</span></span><br><span class="line">wb = xlrd.open_workbook(<span class="string">"excel_name.xls"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取并打印 sheet 数量</span></span><br><span class="line">print( <span class="string">"sheet 数量:"</span>, wb.nsheets)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取并打印 sheet 名称</span></span><br><span class="line">print( <span class="string">"sheet 名称:"</span>, wb.sheet_names())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据 sheet 索引获取内容</span></span><br><span class="line">sh1 = wb.sheet_by_index(<span class="number">1</span>)</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># 也可根据 sheet 名称获取内容</span></span><br><span class="line"><span class="comment"># sh = wb.sheet_by_name('成绩')</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取并打印该 sheet 行数和列数</span></span><br><span class="line">print( <span class="string">u"sheet %s 共 %d 行 %d 列"</span> % (sh1.name, sh1.nrows, sh1.ncols))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取并打印某个单元格的值</span></span><br><span class="line">print( <span class="string">"第一行第二列的值为:"</span>, sh1.cell_value(<span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取整行或整列的值</span></span><br><span class="line">rows = sh1.row_values(<span class="number">0</span>) <span class="comment"># 获取第一行内容</span></span><br><span class="line">cols = sh1.col_values(<span class="number">1</span>) <span class="comment"># 获取第二列内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印获取的行列值</span></span><br><span class="line">print( <span class="string">"第一行的值为:"</span>, rows)</span><br><span class="line">print( <span class="string">"第二列的值为:"</span>, cols)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取单元格内容的数据类型</span></span><br><span class="line">print( <span class="string">"第二行第一列的值类型为:"</span>, sh1.cell(<span class="number">1</span>, <span class="number">0</span>).ctype)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历所有表单内容</span></span><br><span class="line"><span class="keyword">for</span> sh <span class="keyword">in</span> wb.sheets():</span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> range(sh.nrows):</span><br><span class="line">        <span class="comment"># 输出指定行</span></span><br><span class="line">        print( sh.row(r))</span><br></pre></td></tr></table></figure>
+
+<p>经过调整，通过读取所选的sheet的特定的数据做映射，生成一个字典</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 xlrd 库</span></span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开刚才我们写入的 test_w.xls 文件</span></span><br><span class="line">wb = xlrd.open_workbook(<span class="string">"test.xls"</span>)</span><br><span class="line">redline_dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 整理所需要sheet的特定的列与特定的行</span></span><br><span class="line">sheet_L=[&#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"Mac"</span>,</span><br><span class="line">    <span class="string">"row_min"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">"row_max"</span>:<span class="number">92</span>,</span><br><span class="line">    <span class="string">"project_name"</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="string">"word_label"</span>:<span class="number">17</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"Windows"</span>,</span><br><span class="line">    <span class="string">"row_min"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">"row_max"</span>:<span class="number">92</span>,</span><br><span class="line">    <span class="string">"project_name"</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="string">"word_label"</span>:<span class="number">17</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"Linux"</span>,</span><br><span class="line">    <span class="string">"row_min"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">"row_max"</span>:<span class="number">92</span>,</span><br><span class="line">    <span class="string">"project_name"</span>:<span class="number">3</span>,</span><br><span class="line">    <span class="string">"word_label"</span>:<span class="number">17</span></span><br><span class="line">&#125;,&#123;</span><br><span class="line">    <span class="string">"name"</span>:<span class="string">"Android"</span>,</span><br><span class="line">    <span class="string">"row_min"</span>:<span class="number">1</span>,</span><br><span class="line">    <span class="string">"row_max"</span>:<span class="number">47</span>,</span><br><span class="line">    <span class="string">"project_name"</span>:<span class="number">4</span>,</span><br><span class="line">    <span class="string">"word_label"</span>:<span class="number">16</span></span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> sh <span class="keyword">in</span> sheet_L:    </span><br><span class="line">    sheet = wb.sheet_by_name(sh[<span class="string">"name"</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(sh[<span class="string">"row_min"</span>],sh[<span class="string">"row_max"</span>]):</span><br><span class="line">        project_name = sheet.cell_value(i, sh[<span class="string">"project_name"</span>])</span><br><span class="line">        word_cloud_label= sheet.cell_value(i, sh[<span class="string">"word_label"</span>])</span><br><span class="line">        <span class="keyword">if</span> project_name!=<span class="string">'/'</span>:</span><br><span class="line">            <span class="keyword">if</span> word_cloud_label !=<span class="string">'/'</span>:</span><br><span class="line">                <span class="keyword">if</span> redline_dict.has_key(project_name):</span><br><span class="line">                    print(<span class="string">"=============重复========"</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    redline_dict[project_name]=word_cloud_label</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"redline_dict"</span>, redline_dict)</span><br></pre></td></tr></table></figure>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const gitalk = new Gitalk({
+    clientID: '8888a8888',
+    clientSecret: '8888886666666',
+    repo: 'xxxx.github.io',
+    owner: 'admin',
+    admin: ['admin'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false
+  })
+
+  gitalk.render('comments');
+</script>
+
+
+        </div>
+      </div>
+    </div>
+   </div>
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io" target="_blank" rel="noopener"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn" target="_blank" rel="noopener"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2020 辽ICP备20003064号-1</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
+  var canConsole = true;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/blogs/./js/main.js"></script>
+
+  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="hexo,个人博客,blog" />
+  <meta name="description" content="某某的个人博客" />
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  <link rel="dns-prefetch" href="https://at.alicdn.com">
+  
+  <link rel="dns-prefetch" href="https://widget.daovoice.io">
+  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
+  <link rel="dns-prefetch" href="https://im.daovoice.io">
+  
+  
+  <link rel="dns-prefetch" href="https://hm.baidu.com/">
+  
+  
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  
+  <link rel="stylesheet" type="text/css" href="/blogs/./style/main.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>JavaScript 类理论</title>
+  
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+  </script>
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
+  </script>
+  
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body>
+  <canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/blogs/">于贺美的官方博客</a>
+  <a class="face-img" href="/blogs/">
+    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    JavaScript 类理论
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2021-11-30T06:42:43.000Z" itemprop="datePublished">2021-11-30</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2023-02-08T11:45:50.825Z" itemprop="dateUpdated">2023-02-08</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>严格上讲JavaScript是不存在类这一说的，但是Javascript就不是一门严格的语言<br>JS的类主要有继承！实例化！和多态！<br>加油！</p>
+<h2 id="混入"><a href="#混入" class="headerlink" title="混入"></a>混入</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mixin</span>(<span class="params">sourceObj,targetObj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> sourceObj)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!(key <span class="keyword">in</span> sourceObj))&#123;</span><br><span class="line">            targetObj[key]=sourceObj[key]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> targetObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="委托"><a href="#委托" class="headerlink" title="委托"></a>委托</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Task = &#123;</span><br><span class="line">    setID: <span class="function"><span class="keyword">function</span> (<span class="params">ID</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = ID;</span><br><span class="line">    &#125;,</span><br><span class="line">    outputID: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.id);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">// 让 XYZ 委托 Task </span></span><br><span class="line">XYZ = <span class="built_in">Object</span>.create( Task ); </span><br><span class="line">XYZ.prepareTask = <span class="function"><span class="keyword">function</span>(<span class="params">ID,Label</span>) </span>&#123;</span><br><span class="line"><span class="keyword">this</span>.setID(ID);</span><br><span class="line"><span class="keyword">this</span>.label = Label;</span><br><span class="line">&#125;;</span><br><span class="line">XYZ.outputTaskDetails = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.outputID();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.label);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">XYZ.prepareTask(<span class="number">11</span>,<span class="string">"NOTHING"</span>)</span><br><span class="line">XYZ.outputTaskDetails() <span class="comment">//11 NOTHING</span></span><br><span class="line"><span class="comment">// ABC = Object.create( Task );</span></span><br><span class="line"><span class="comment">// ABC ... = ...F</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="原型与委托思维模型比较"><a href="#原型与委托思维模型比较" class="headerlink" title="原型与委托思维模型比较"></a>原型与委托思维模型比较</h2><ol>
+<li><p>原型</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">who</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.me = who;</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.identify = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"I am "</span> + <span class="keyword">this</span>.me;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params">who</span>) </span>&#123;</span><br><span class="line">    Foo.call(<span class="keyword">this</span>, who);</span><br><span class="line">&#125;</span><br><span class="line">Bar.prototype = <span class="built_in">Object</span>.create(Foo.prototype);</span><br><span class="line">Bar.prototype.speak = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello, "</span> + <span class="keyword">this</span>.identify() + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b1 = <span class="keyword">new</span> Bar(<span class="string">"b1"</span>);</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="keyword">new</span> Bar(<span class="string">"b2"</span>);</span><br><span class="line">b1.speak(); --&gt; Hello, I am b1.</span><br><span class="line">b2.speak(); --&gt; Hello, I am b2.</span><br></pre></td></tr></table></figure></li>
+<li><p>委托</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Foo = &#123;</span><br><span class="line">    init: <span class="function"><span class="keyword">function</span> (<span class="params">who</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.me = who;</span><br><span class="line">    &#125;,</span><br><span class="line">    identify: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"I am "</span> + <span class="keyword">this</span>.me;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">Bar = <span class="built_in">Object</span>.create(Foo);</span><br><span class="line">Bar.speak = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello, "</span> + <span class="keyword">this</span>.identify() + <span class="string">"."</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> b1 = <span class="built_in">Object</span>.create(Bar);</span><br><span class="line">b1.init(<span class="string">"b1"</span>);</span><br><span class="line"><span class="keyword">var</span> b2 = <span class="built_in">Object</span>.create(Bar);</span><br><span class="line"></span><br><span class="line">b2.init(<span class="string">"b2"</span>);</span><br><span class="line">b1.speak(); --&gt; Hello, I am b1.</span><br><span class="line">b2.speak(); --&gt; Hello, I am b2.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="具体实现与实际应用"><a href="#具体实现与实际应用" class="headerlink" title="具体实现与实际应用"></a>具体实现与实际应用</h2><ol>
+<li><p>JQuery与JavaScript原型实现</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Widget</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.width = width || <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">this</span>.height = height || <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line">Widget.prototype.render = <span class="function"><span class="keyword">function</span> (<span class="params">$where</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.$elem) &#123;</span><br><span class="line">        <span class="keyword">this</span>.$elem.css(&#123;</span><br><span class="line">            width: <span class="keyword">this</span>.width + <span class="string">"px"</span>,</span><br><span class="line">            height: <span class="keyword">this</span>.height + <span class="string">"px"</span></span><br><span class="line">        &#125;).appendTo($where);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;; </span><br><span class="line"><span class="comment">// 子类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Button</span>(<span class="params">width, height, label</span>) </span>&#123; </span><br><span class="line">    <span class="comment">// 调用“super”构造函数 </span></span><br><span class="line">    Widget.call( <span class="keyword">this</span>, width, height );</span><br><span class="line">    <span class="keyword">this</span>.label = label || <span class="string">"Default"</span>;</span><br><span class="line">    <span class="keyword">this</span>.$elem = $(<span class="string">"&lt;button&gt;"</span>).text(<span class="keyword">this</span>.label);</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 让 Button“继承”Widget </span></span><br><span class="line">Button.prototype = <span class="built_in">Object</span>.create( Widget.prototype ); </span><br><span class="line"><span class="comment">// 重写 render(..) </span></span><br><span class="line">Button.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params">$where</span>) </span>&#123; </span><br><span class="line">    <span class="comment">//“super”调用 </span></span><br><span class="line">    Widget.prototype.render.call( <span class="keyword">this</span>, $where );</span><br><span class="line">    <span class="keyword">this</span>.$elem.click(<span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">&#125;;</span><br><span class="line">Button.prototype.onClick = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Button '"</span> + <span class="keyword">this</span>.label + <span class="string">"' clicked!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $body = $(<span class="built_in">document</span>.body);</span><br><span class="line">    <span class="keyword">var</span> btn1 = <span class="keyword">new</span> Button(<span class="number">125</span>, <span class="number">30</span>, <span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">var</span> btn2 = <span class="keyword">new</span> Button(<span class="number">150</span>, <span class="number">40</span>, <span class="string">"World"</span>);</span><br><span class="line">    btn1.render($body);</span><br><span class="line">    btn2.render($body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>ES6 Class 语法糖</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(width, height) &#123;</span><br><span class="line">        <span class="keyword">this</span>.width = width || <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">this</span>.height = height || <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    render($where) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.$elem) &#123;</span><br><span class="line">            <span class="keyword">this</span>.$elem.css(&#123;</span><br><span class="line">                width: <span class="keyword">this</span>.width + <span class="string">"px"</span>,</span><br><span class="line">                height: <span class="keyword">this</span>.height + <span class="string">"px"</span></span><br><span class="line">            &#125;).appendTo($where);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span> <span class="keyword">extends</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(width, height, label) &#123;</span><br><span class="line">        <span class="keyword">super</span>(width, height);</span><br><span class="line">        <span class="keyword">this</span>.label = label || <span class="string">"Default"</span>;</span><br><span class="line">        <span class="keyword">this</span>.$elem = $(<span class="string">"&lt;button&gt;"</span>).text(<span class="keyword">this</span>.label);</span><br><span class="line">    &#125;</span><br><span class="line">    render($where) &#123;</span><br><span class="line">        <span class="keyword">super</span>($where);</span><br><span class="line">        <span class="keyword">this</span>.$elem.click(<span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    onClick(evt) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Button '"</span> + <span class="keyword">this</span>.label + <span class="string">"' clicked!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $body = $(<span class="built_in">document</span>.body);</span><br><span class="line">    <span class="keyword">var</span> btn1 = <span class="keyword">new</span> Button(<span class="number">125</span>, <span class="number">30</span>, <span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">var</span> btn2 = <span class="keyword">new</span> Button(<span class="number">150</span>, <span class="number">40</span>, <span class="string">"World"</span>);</span><br><span class="line">    btn1.render($body);</span><br><span class="line">    btn2.render($body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li><p>委托行为模式</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Widget = &#123;</span><br><span class="line">    init: <span class="function"><span class="keyword">function</span> (<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.width = width || <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">this</span>.height = height || <span class="number">50</span>;</span><br><span class="line">        <span class="keyword">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    insert: <span class="function"><span class="keyword">function</span> (<span class="params">$where</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.$elem) &#123;</span><br><span class="line">            <span class="keyword">this</span>.$elem.css(&#123;</span><br><span class="line">                width: <span class="keyword">this</span>.width + <span class="string">"px"</span>,</span><br><span class="line">                height: <span class="keyword">this</span>.height + <span class="string">"px"</span></span><br><span class="line">            &#125;).appendTo($where);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> Button = <span class="built_in">Object</span>.create(Widget);</span><br><span class="line">Button.setup = <span class="function"><span class="keyword">function</span> (<span class="params">width, height, label</span>) </span>&#123; <span class="comment">// 委托调用</span></span><br><span class="line">    <span class="keyword">this</span>.init(width, height);</span><br><span class="line">    <span class="keyword">this</span>.label = label || <span class="string">"Default"</span>;</span><br><span class="line">    <span class="keyword">this</span>.$elem = $(<span class="string">"&lt;button&gt;"</span>).text(<span class="keyword">this</span>.label);</span><br><span class="line">&#125;;</span><br><span class="line">Button.build = <span class="function"><span class="keyword">function</span> (<span class="params">$where</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 委托调用</span></span><br><span class="line">    <span class="keyword">this</span>.insert($where);</span><br><span class="line">    <span class="keyword">this</span>.$elem.click(<span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">&#125;;</span><br><span class="line">Button.onClick = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Button '"</span> + <span class="keyword">this</span>.label + <span class="string">"' clicked!"</span>);</span><br><span class="line">&#125;;</span><br><span class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $body = $(<span class="built_in">document</span>.body);</span><br><span class="line">    <span class="keyword">var</span> btn1 = <span class="built_in">Object</span>.create(Button);</span><br><span class="line">    btn1.setup(<span class="number">125</span>, <span class="number">30</span>, <span class="string">"Hello"</span>);</span><br><span class="line">    <span class="keyword">var</span> btn2 = <span class="built_in">Object</span>.create(Button);</span><br><span class="line">    btn2.setup(<span class="number">150</span>, <span class="number">40</span>, <span class="string">"World"</span>);</span><br><span class="line">    btn1.build($body);</span><br><span class="line">    btn2.build($body);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LoginController = &#123;</span><br><span class="line">        errors: [],</span><br><span class="line">        getUser() &#123; </span><br><span class="line">            <span class="comment">// 妈妈再也不用担心代码里有 function 了！ </span></span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;,getPassword() &#123; </span><br><span class="line">            <span class="comment">// ... </span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// ... </span></span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>唯一的区别是对象的字面形式仍然需要使用“,”来分隔元素，而 class 语法不需要。这个 区别对于整体的设计来说无关紧要。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">this</span>.num = <span class="built_in">Math</span>.random();</span><br><span class="line">    &#125;</span><br><span class="line">    rand() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Random: "</span> + <span class="keyword">this</span>.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c1 = <span class="keyword">new</span> C();</span><br><span class="line">c1.rand(); --&gt; <span class="string">"Random: 0.4324299..."</span></span><br><span class="line">--&gt; C.prototype是委托给所有的C的实例对象的 他们共用同一块内存</span><br><span class="line">C.prototype.rand = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Random: "</span> + <span class="built_in">Math</span>.round(<span class="keyword">this</span>.num * <span class="number">1000</span>));</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> c2 = <span class="keyword">new</span> C();</span><br><span class="line">c2.rand(); --&gt; <span class="string">"Random: 867"</span> \</span><br><span class="line">c1.rand(); --&gt; <span class="string">"Random: 432"</span> ——噢！</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类引用实际上也是一种行为委托</li>
+<li>创建实例对象时并没有创建父类的的行为副本，而只创建了对象副本</li>
+</ul>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const gitalk = new Gitalk({
+    clientID: '8888a8888',
+    clientSecret: '8888886666666',
+    repo: 'xxxx.github.io',
+    owner: 'admin',
+    admin: ['admin'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false
+  })
+
+  gitalk.render('comments');
+</script>
+
+
+        </div>
+      </div>
+    </div>
+   </div>
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io" target="_blank" rel="noopener"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn" target="_blank" rel="noopener"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2020 辽ICP备20003064号-1</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
+  var canConsole = true;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/blogs/./js/main.js"></script>
+
+  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
+</body>
+</html>
