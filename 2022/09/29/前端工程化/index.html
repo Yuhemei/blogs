@@ -1,174 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="keywords" content="hexo,个人博客,blog" />
-  <meta name="description" content="某某的个人博客" />
-  <meta http-equiv="x-dns-prefetch-control" content="on">
-  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
-  <link rel="dns-prefetch" href="https://at.alicdn.com">
-  
-  <link rel="dns-prefetch" href="https://widget.daovoice.io">
-  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
-  <link rel="dns-prefetch" href="https://im.daovoice.io">
-  
-  
-  <link rel="dns-prefetch" href="https://hm.baidu.com/">
-  
-  
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="dns-prefetch" href="https://api.github.com">
-  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
-  
-  <link rel="stylesheet" type="text/css" href="/blogs/./style/main.css">
-	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>&#39;前端工程化&#39;</title>
-  
-  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
-  </script>
-  
-  
-    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
-  </script>
-  
-<meta name="generator" content="Hexo 4.2.1"></head>
-<body>
-  <canvas id="pattern-placeholder" height="230"></canvas>
-<div class="navbar-header">
-  <a class="blog-title" href="/blogs/">于贺美的官方博客</a>
-  <a class="face-img" href="/blogs/">
-    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
-  </a>
-</div>
-<main>
-  <div class="article-title">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="google-site-verification" content="TZE0rZyIqLl10trYu3BWBWa1Vmz6HFwhb2OcNEK4u-s" />
+     <link rel="shortcut icon" href= /img/favicon.ico >
+    <title>
+        于贺美的官方博客
+    </title>
+    <meta name="description" content=  >
+    <meta name="keywords" content= Blog,Hexo,Theme,Coder,hemei >
     
-  
-  <h1 class="title">
-    &#39;前端工程化&#39;
-  </h1>
-  
+<link rel="stylesheet" href="/blogs/libs/highlight/styles/monokai-sublime.css">
 
+    
+<link rel="stylesheet" href="/blogs/libs/font-awesome/css/font-awesome.min.css">
 
-    <ul class="article-info">
-      <li>
-        发布
-        <time datetime="2022-09-29T03:16:44.000Z" itemprop="datePublished">2022-09-29</time>
-      </li>
-      <li>
-        
-    更新 <time datetime="2023-02-08T11:45:50.826Z" itemprop="dateUpdated">2023-02-08</time>
+    
+<link rel="stylesheet" href="/blogs/css/style.css">
 
-      </li>
-      <li id="busuanzi_container_page_pv">
-        阅读 <span id="busuanzi_value_page_pv"></span>
-      </li>
-    </ul>
-  </div>
-  <div class="container">
-    <div class="article">
-      <div class="content">
-        
+<meta name="generator" content="Hexo 4.2.1"></head>
+<body id="bodyx">
+    <div class="hd posts">
+    <a href="/"><i class="fa fa-home
+ replay-btn" aria-hidden="true"></i></a>
+    <div class="post-title">
+        <p>
+            前端工程化
+        </p>
+        <hr>
+    </div>
+    <div class="post-content">
         <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><h2 id="举例应用"><a href="#举例应用" class="headerlink" title="举例应用"></a>举例应用</h2><h3 id="nginx-conf"><a href="#nginx-conf" class="headerlink" title="nginx.conf"></a>nginx.conf</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"># For more information on configuration, see:</span><br><span class="line">#   * Official English Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;</span><br><span class="line">#   * Official Russian Documentation: http:&#x2F;&#x2F;nginx.org&#x2F;ru&#x2F;docs&#x2F;</span><br><span class="line"></span><br><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log &#x2F;var&#x2F;log&#x2F;nginx&#x2F;error.log;</span><br><span class="line">pid &#x2F;run&#x2F;nginx.pid;</span><br><span class="line"></span><br><span class="line"># Load dynamic modules. See &#x2F;usr&#x2F;share&#x2F;doc&#x2F;nginx&#x2F;README.dynamic.</span><br><span class="line">include &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;modules&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections 1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    log_format  main  &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;</span><br><span class="line">                      &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span><br><span class="line">                      &#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;</span><br><span class="line"></span><br><span class="line">    access_log  &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile            on;</span><br><span class="line">    tcp_nopush          on;</span><br><span class="line">    tcp_nodelay         on;</span><br><span class="line">    keepalive_timeout   65;</span><br><span class="line">    types_hash_max_size 4096;</span><br><span class="line"></span><br><span class="line">    include             &#x2F;etc&#x2F;nginx&#x2F;mime.types;</span><br><span class="line">    default_type        application&#x2F;octet-stream;</span><br><span class="line"></span><br><span class="line">    # Load modular configuration files from the &#x2F;etc&#x2F;nginx&#x2F;conf.d directory.</span><br><span class="line">    # See http:&#x2F;&#x2F;nginx.org&#x2F;en&#x2F;docs&#x2F;ngx_core_module.html#include</span><br><span class="line">    # for more information.</span><br><span class="line">    include &#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;*.conf;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        client_max_body_size 500M;</span><br><span class="line">        listen       80;</span><br><span class="line">        listen       [::]:80;</span><br><span class="line">        server_name  _;</span><br><span class="line">        root         &#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">         location &#x2F;contrl&#x2F; &#123;</span><br><span class="line">            proxy_pass http:&#x2F;&#x2F;127.0.0.1:10001&#x2F;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        location &#x2F;api&#x2F;v1&#x2F; &#123;</span><br><span class="line">            proxy_pass http:&#x2F;&#x2F;127.0.0.1:10002&#x2F;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F;api&#x2F;file&#x2F; &#123;</span><br><span class="line">            proxy_pass http:&#x2F;&#x2F;127.0.0.1:10003&#x2F;;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F;page_first &#123;</span><br><span class="line">            # 相对路径配置，基于nginx启动的位置</span><br><span class="line">            # root   &#x2F;opt&#x2F;kypt;</span><br><span class="line">            root &#x2F;opt&#x2F;first;</span><br><span class="line">            index  index.html;</span><br><span class="line">            # try_files  $uri $uri&#x2F; &#x2F;index.html;</span><br><span class="line">            try_files $uri $uri&#x2F; &#x2F;page_first&#x2F;index.html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F;page_second &#123;</span><br><span class="line">            # 相对路径配置，基于nginx启动的位置</span><br><span class="line">            # root   &#x2F;opt&#x2F;kypt;</span><br><span class="line">            root &#x2F;opt&#x2F;kypt;</span><br><span class="line">            index  index.html;</span><br><span class="line">            # try_files  $uri $uri&#x2F; &#x2F;index.html;</span><br><span class="line">            try_files $uri $uri&#x2F; &#x2F;glxtresources&#x2F;index.html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F;page_third &#123;</span><br><span class="line">            # 相对路径配置，基于nginx启动的位置</span><br><span class="line">            # root   &#x2F;opt&#x2F;kypt;</span><br><span class="line">            root &#x2F;opt&#x2F;kypt;</span><br><span class="line">            index  index.html;</span><br><span class="line">            # try_files  $uri $uri&#x2F; &#x2F;index.html;</span><br><span class="line">            try_files $uri $uri&#x2F; &#x2F;portal&#x2F;index.html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">            return 301 &#x2F;page_first;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # Load configuration files for the default server block.</span><br><span class="line">        include &#x2F;etc&#x2F;nginx&#x2F;default.d&#x2F;*.conf;</span><br><span class="line">        error_page 404 &#x2F;404.html;</span><br><span class="line">        location &#x3D; &#x2F;404.html &#123;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JavaScript</span></span><br><span class="line"><span class="meta">'use strict'</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> defaultSettings = <span class="built_in">require</span>(<span class="string">'./src/settings.js'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">dir</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> path.join(__dirname, dir)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> name = defaultSettings.title || <span class="string">'vue Element Admin'</span> <span class="comment">// page title</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// If your port is set to 80,</span></span><br><span class="line"><span class="comment">// use administrator privileges to execute the command line.</span></span><br><span class="line"><span class="comment">// For example, Mac: sudo npm run</span></span><br><span class="line"><span class="comment">// You can change the port by the following method:</span></span><br><span class="line"><span class="comment">// port = 9527 npm run dev OR npm run dev --port = 9527</span></span><br><span class="line"><span class="keyword">const</span> port = process.env.port || process.env.npm_config_port || <span class="number">8888</span> <span class="comment">// dev port</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// All configuration item explanations can be find in https://cli.vuejs.org/config/</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * You will need to set publicPath if you plan to deploy your site under a sub path,</span></span><br><span class="line"><span class="comment">     * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,</span></span><br><span class="line"><span class="comment">     * then publicPath should be set to "/bar/".</span></span><br><span class="line"><span class="comment">     * In most cases please use '/' !!!</span></span><br><span class="line"><span class="comment">     * Detail: https://cli.vuejs.org/config/#publicpath</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="comment">// publicPath: './',</span></span><br><span class="line">    <span class="comment">// publicPath: process.env.NODE_ENV == 'development' ? './' : '/homepage/',</span></span><br><span class="line"></span><br><span class="line">    publicPath: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'/name_head/'</span> : <span class="string">'/'</span>,</span><br><span class="line">    outputDir: <span class="string">'dist'</span>,</span><br><span class="line">    assetsDir: <span class="string">'static'</span>,</span><br><span class="line">    lintOnSave: process.env.NODE_ENV === <span class="string">'development'</span>,</span><br><span class="line">    productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        port: port,</span><br><span class="line">        open: <span class="literal">false</span>,</span><br><span class="line">        overlay: &#123;</span><br><span class="line">            warnings: <span class="literal">false</span>,</span><br><span class="line">            errors: <span class="literal">false</span></span><br><span class="line">        &#125;,</span><br><span class="line">        proxy: &#123; <span class="comment">// string | Object</span></span><br><span class="line">            <span class="string">'/api/portal'</span>: &#123; <span class="comment">//字段代表像target发送请求的请求url前置字段**跟name_head一定要区分开</span></span><br><span class="line">                <span class="comment">/* 目标代理服务器地址 */</span></span><br><span class="line">                target: <span class="string">'http://0.0.0.0:0:80'</span>,</span><br><span class="line">                <span class="comment">/* 允许跨域 */</span></span><br><span class="line">                changeOrigin: <span class="literal">true</span>,</span><br><span class="line">                <span class="comment">// pathRewrite: &#123;</span></span><br><span class="line">                <span class="comment">//   '^/': '' //规定请求地址以什么作为开头</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'/api/file/'</span>: &#123;</span><br><span class="line">                <span class="comment">/* 目标代理服务器地址 */</span></span><br><span class="line">                target: <span class="string">'http://0.0.0.0:80/'</span>,</span><br><span class="line">                <span class="comment">/* 允许跨域 */</span></span><br><span class="line">                changeOrigin: <span class="literal">true</span>,</span><br><span class="line">                <span class="comment">// pathRewrite: &#123;</span></span><br><span class="line">                <span class="comment">//   '^/': '' //规定请求地址以什么作为开头</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    configureWebpack: &#123;</span><br><span class="line">        <span class="comment">// provide the app's title in webpack's name field, so that</span></span><br><span class="line">        <span class="comment">// it can be accessed in index.html to inject the correct title.</span></span><br><span class="line">        name: name,</span><br><span class="line">        resolve: &#123;</span><br><span class="line">            alias: &#123;</span><br><span class="line">                <span class="string">'@'</span>: resolve(<span class="string">'src'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    chainWebpack(config) &#123;</span><br><span class="line">        config.plugins.delete(<span class="string">'preload'</span>) <span class="comment">// <span class="doctag">TODO:</span> need test</span></span><br><span class="line">        config.plugins.delete(<span class="string">'prefetch'</span>) <span class="comment">// <span class="doctag">TODO:</span> need test</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// set svg-sprite-loader</span></span><br><span class="line">        config.module</span><br><span class="line">            .rule(<span class="string">'svg'</span>)</span><br><span class="line">            .exclude.add(resolve(<span class="string">'src/icons'</span>))</span><br><span class="line">            .end()</span><br><span class="line">        config.module</span><br><span class="line">            .rule(<span class="string">'icons'</span>)</span><br><span class="line">            .test(<span class="regexp">/\.svg$/</span>)</span><br><span class="line">            .include.add(resolve(<span class="string">'src/icons'</span>))</span><br><span class="line">            .end()</span><br><span class="line">            .use(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">            .loader(<span class="string">'svg-sprite-loader'</span>)</span><br><span class="line">            .options(&#123;</span><br><span class="line">                symbolId: <span class="string">'icon-[name]'</span></span><br><span class="line">            &#125;)</span><br><span class="line">            .end()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// set preserveWhitespace</span></span><br><span class="line">        config.module</span><br><span class="line">            .rule(<span class="string">'vue'</span>)</span><br><span class="line">            .use(<span class="string">'vue-loader'</span>)</span><br><span class="line">            .loader(<span class="string">'vue-loader'</span>)</span><br><span class="line">            .tap(<span class="function"><span class="params">options</span> =&gt;</span> &#123;</span><br><span class="line">                options.compilerOptions.preserveWhitespace = <span class="literal">true</span></span><br><span class="line">                <span class="keyword">return</span> options</span><br><span class="line">            &#125;)</span><br><span class="line">            .end()</span><br><span class="line"></span><br><span class="line">        config</span><br><span class="line">            <span class="comment">// https://webpack.js.org/configuration/devtool/#development</span></span><br><span class="line">            .when(process.env.NODE_ENV === <span class="string">'development'</span>,</span><br><span class="line">                config =&gt; config.devtool(<span class="string">'cheap-source-map'</span>)</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        config</span><br><span class="line">            .when(process.env.NODE_ENV !== <span class="string">'development'</span>,</span><br><span class="line">                config =&gt; &#123;</span><br><span class="line">                    config</span><br><span class="line">                        .plugin(<span class="string">'ScriptExtHtmlWebpackPlugin'</span>)</span><br><span class="line">                        .after(<span class="string">'html'</span>)</span><br><span class="line">                        .use(<span class="string">'script-ext-html-webpack-plugin'</span>, [&#123;</span><br><span class="line">                            <span class="comment">// `runtime` must same as runtimeChunk name. default is `runtime`</span></span><br><span class="line">                            inline: <span class="regexp">/runtime\..*\.js$/</span></span><br><span class="line">                        &#125;])</span><br><span class="line">                        .end()</span><br><span class="line">                    config</span><br><span class="line">                        .optimization.splitChunks(&#123;</span><br><span class="line">                            chunks: <span class="string">'all'</span>,</span><br><span class="line">                            cacheGroups: &#123;</span><br><span class="line">                                libs: &#123;</span><br><span class="line">                                    name: <span class="string">'chunk-libs'</span>,</span><br><span class="line">                                    test: <span class="regexp">/[\\/]node_modules[\\/]/</span>,</span><br><span class="line">                                    priority: <span class="number">10</span>,</span><br><span class="line">                                    chunks: <span class="string">'initial'</span> <span class="comment">// only package third parties that are initially dependent</span></span><br><span class="line">                                &#125;,</span><br><span class="line">                                elementUI: &#123;</span><br><span class="line">                                    name: <span class="string">'chunk-elementUI'</span>, <span class="comment">// split elementUI into a single package</span></span><br><span class="line">                                    priority: <span class="number">20</span>, <span class="comment">// the weight needs to be larger than libs and app or it will be packaged into libs or app</span></span><br><span class="line">                                    test: <span class="regexp">/[\\/]node_modules[\\/]_?element-ui(.*)/</span> <span class="comment">// in order to adapt to cnpm</span></span><br><span class="line">                                &#125;,</span><br><span class="line">                                commons: &#123;</span><br><span class="line">                                    name: <span class="string">'chunk-commons'</span>,</span><br><span class="line">                                    test: resolve(<span class="string">'src/components'</span>), <span class="comment">// can customize your rules</span></span><br><span class="line">                                    minChunks: <span class="number">3</span>, <span class="comment">//  minimum common number</span></span><br><span class="line">                                    priority: <span class="number">5</span>,</span><br><span class="line">                                    reuseExistingChunk: <span class="literal">true</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;)</span><br><span class="line">                    config.optimization.runtimeChunk(<span class="string">'single'</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="个人总结与注意事项"><a href="#个人总结与注意事项" class="headerlink" title="个人总结与注意事项"></a>个人总结与注意事项</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2>
-      </div>
-        <div class="support-author">
-          <p>感谢您的阅读。 🙏
-          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
-            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
-          </p>
-        </div>
-        <!--
-            <div class="like ">
-              <div class="like-button">
-                <a id="like-note" href="">
-                  <i class="icon-heart"></i>喜欢
-                </a>
-              </div>
-              <span id="likes-count">256</span>
-            </div>
-        -->
-        <div class="otherLink">
-          <div class="previous">
-          </div>
-          <div class="next">
-          </div>
-        </div>
-        <div class="comments" id="comments">
-          
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-  const gitalk = new Gitalk({
-    clientID: '8888a8888',
-    clientSecret: '8888886666666',
-    repo: 'xxxx.github.io',
-    owner: 'admin',
-    admin: ['admin'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false
-  })
-
-  gitalk.render('comments');
-</script>
-
-
-        </div>
-      </div>
     </div>
-   </div>
-</main>
-<div class="footer">
-  <div class="info">
-    <p>
-    <a href="https://hexo.io" target="_blank" rel="noopener"> Hexo </a> 强力驱动 |
-      <a href="https://github.com/Youthink/hexo-themes-yearn" target="_blank" rel="noopener"> Yearn </a>
-      主题
-    </p>
-    <p>&copy;2020 辽ICP备20003064号-1</p>
-  </div>
+
+    
+        <hr class="fhr">
+        <div id="vcomments"></div>
+        
 </div>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!--
+ * @Author: hemei yuhemei8088@163.com
+ * @Date: 2023-09-13 10:55:02
+ * @LastEditors: hemei yuhemei8088@163.com
+ * @LastEditTime: 2023-09-13 11:20:33
+ * @FilePath: /myBlogs/themes/coder/layout/_partial/footer.ejs
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<div class="footer" id="footer">
+    <p>
+    <h4>
+        版权所有 © 2020
+                辽ICP备20003064号-1 | 作者: hemei |
+                            主题 By <a class="theme-author"
+                                    href="https://github.com/Xunzhuo/hexo-theme-coder"
+                                    style="font-size:14px; color: #969696">Coder</a>
+    </h4>
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <span id="busuanzi_container_site_pv">
+            本站浏览总访问量: <span id="busuanzi_value_site_pv"></span>
+        </span>
+        <span class="post-meta-divider">|</span>
+        <span id="busuanzi_container_site_uv">
+            本站访问人数: <span id="busuanzi_value_site_uv"></span>
+        </span>
+        
+            <label class="el-switch el-switch-blue el-switch-sm" style="vertical-align: sub;">
+                <input type="checkbox" name="switch" id="update_style">
+                <span class="el-switch-style"></span>
+            </label>
 
-<script>//console
-  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
-  var canConsole = true;
-  var consoleInfo = (function(consoleConfig) {
-  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
-    return;
-  }
-  var consoleColor = '#6190e8';
-  var _console;
-  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
-  var textStyle = 'color: ' + consoleColor + ';';
+            <!--         <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? "https://" : "http://");
+    document.write(unescape("%3Cspan id='cnzz_stat_icon_1278548644'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/stat.php%3Fid%3D1278548644%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script> -->
+            </p>
+</div>
 
-  consoleConfig.map(o => {
-    var num = (o.match(/%c/g) || []).length;
-    if(/^http(s)?:\/\//.test(o)) {
-      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
-      return;
-    }
-    if (num > 0) {
-      var logArguments = [];
-      for (var i = 0; i < num; i++) {
-        if (i % 2 === 0) {
-          logArguments.push(backgroundTextStyle);
-        } else {
-          logArguments.push(textStyle);
-        }
-      }
-      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
-      return;
-    }
-    console.log('%c' + o, textStyle);
-  });
-}(consoleConfig));</script><script type="text/javascript" src="/blogs/./js/main.js"></script>
+<input type="hidden" id="web_style" value="black">
+<input type="hidden" id="valine_appid" value="">
+<input type="hidden" id="valine_appKey" value="">
 
-  <script src="//at.alicdn.com/t/font_159214_mvtxvg9me9.js"></script>
+<script src="/blogs/libs/jquery.min.js"></script>
+
+    
+<script src="/blogs/libs/highlight/highlight.pack.js"></script>
+
+        <script src='//cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+        
+<script src="/blogs/js/js.js"></script>
+
+            <style type="text/css">
+                .v * {
+                    color: #698fca;
+                }
+
+                .v .vlist .vcard .vhead .vsys {
+                    color: #3a3e4a;
+                }
+
+                .v .vlist .vcard .vh .vmeta .vat {
+                    color: #638fd5;
+                }
+
+                .v .vlist .vcard .vhead .vnick {
+                    color: #6ba1ff;
+                }
+
+                .v a {
+                    color: #8696b1;
+                }
+
+                .v .vlist .vcard .vhead .vnick:hover {
+                    color: #669bfc;
+                }
+            </style>
+    <script type="text/javascript" color="173,174,173" opacity='1' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 </body>
 </html>
