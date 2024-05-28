@@ -58,6 +58,8 @@ jobs:
             # 部署工作
       - name: Checkout target repo
         run: |
+          pwd
+          cd ..
           mkdir target-repo
           cd target-repo
           git config --global init.defaultBranch main
