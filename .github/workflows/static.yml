@@ -51,7 +51,11 @@ jobs:
       - name: Deploy to Another Repo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
           git config --global user.name 'kim'
           git config --global user.email 'yuhemei8088@163.com'
           git clone --branch main git@github.com:Yuhemei/blogs.git target-repo
