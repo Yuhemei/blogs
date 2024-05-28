@@ -54,8 +54,8 @@ jobs:
           cd target-repo
           git config --global init.defaultBranch main
           git init
-          git remote add target-origin git@github.com:Yuhemei/blogs.git
-          git pull target-origin main
+          git remote add targetOrigin git@github.com:Yuhemei/blogs.git
+          git pull targetOrigin main || true
       - name: Sync built files to target repo
         run: |
           rsync -av --delete docs/.vitepress/dist/ target-repo/
@@ -68,6 +68,7 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh -T git@github.com || true  # 添加这一行来验证 SSH 配置
 
           cd target-repo
           git config  user.name 'kim'
