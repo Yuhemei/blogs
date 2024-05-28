@@ -68,7 +68,7 @@ jobs:
           git pull origin main || true
       - name: Sync built files to target repo
         run: |
-          rsync -av --delete myBlogs/docs/.vitepress/dist/ target-repo/
+          rsync -av --delete docs/.vitepress/dist/ target-repo/
       - name: Deploy to Another Repo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
