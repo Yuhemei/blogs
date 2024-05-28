@@ -48,6 +48,16 @@ jobs:
         run: pnpm build # npm run docs:build 或 pnpm docs:build / yarn docs:build / bun run docs:build
 
       # 部署工作
+      - name: Checkout target repo
+      run: |
+        mkdir target-repo
+        cd target-repo
+        git init
+        git remote add target-origin git@github.com:Yuhemei/blogs.git
+        git pull target-origin main
+      - name: Sync built files to target repo
+        run: |
+          rsync -av --delete docs/.vitepress/dist/ target-repo/
       - name: Deploy to Another Repo
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -56,13 +66,11 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          git config --global user.name 'kim'
-          git config --global user.email 'yuhemei8088@163.com'
-          rm -rf target-repo
-          git clone --branch main git@github.com:Yuhemei/blogs.git target-repo
-          rsync -av --delete docs/.vitepress/dist/ target-repo/
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
           cd target-repo
-          git remote add target-origin git@github.com:Yuhemei/blogs.git
+          git config  user.name 'kim'
+          git config  user.email 'yuhemei8088@163.com'
           git add .
           git commit -m 'Deploy VitePress site'
           git push -f target-origin main
