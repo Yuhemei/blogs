@@ -47,7 +47,15 @@ jobs:
       - name: Build with VitePress
         run: pnpm build # npm run docs:build 或 pnpm docs:build / yarn docs:build / bun run docs:build
 
-      # 部署工作
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh -T git@github.com || true  # 验证 SSH 配置
+
+            # 部署工作
       - name: Checkout target repo
         run: |
           mkdir target-repo
@@ -64,12 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
-          mkdir -p ~/.ssh/
-          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh -T git@github.com || true  # 添加这一行来验证 SSH 配置
-
           cd target-repo
           git config  user.name 'kim'
           git config  user.email 'yuhemei8088@163.com'
