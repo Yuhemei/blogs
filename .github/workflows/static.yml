@@ -49,12 +49,12 @@ jobs:
 
       # 部署工作
       - name: Checkout target repo
-      run: |
-        mkdir target-repo
-        cd target-repo
-        git init
-        git remote add target-origin git@github.com:Yuhemei/blogs.git
-        git pull target-origin main
+        run: |
+          mkdir target-repo
+          cd target-repo
+          git init
+          git remote add target-origin git@github.com:Yuhemei/blogs.git
+          git pull target-origin main
       - name: Sync built files to target repo
         run: |
           rsync -av --delete docs/.vitepress/dist/ target-repo/
