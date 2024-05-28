@@ -55,8 +55,8 @@ jobs:
           mkdir target-repo
           cd target-repo
           git init
-          git config  user.email "yuhemei8088@163.com"
-          git config  user.name "yuhemei"
+          git config  --global user.email "yuhemei8088@163.com"
+          git config  --global user.name "yuhemei"
           git remote add origin git@github.com:Yuhemei/blogs.git
           git pull origin main || true  # 忽略错误以确保后续步骤可以运行
 
