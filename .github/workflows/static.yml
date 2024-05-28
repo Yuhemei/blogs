@@ -54,7 +54,7 @@ jobs:
           cd target-repo
           git config --global init.defaultBranch main
           git init
-          git remote add target-origin git@github.com:Yuhemei/blogs.git
+          git remote add target-origin https://github.com/Yuhemei/blogs.git
           git pull target-origin main
       - name: Sync built files to target repo
         run: |
