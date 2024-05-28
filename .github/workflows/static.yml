@@ -64,4 +64,5 @@ jobs:
           git remote add target-origin git@github.com:Yuhemei/blogs.git
           git add .
           git commit -m 'Deploy VitePress site'
+          git pull target-origin main
           git push target-origin main
