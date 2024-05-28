@@ -75,4 +75,4 @@ jobs:
           git config  user.email 'yuhemei8088@163.com'
           git add .
           git commit -m 'Deploy VitePress site'
-          git push -f target-origin main
+          git push -f targetOrigin main
